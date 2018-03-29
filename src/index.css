@@ -5,7 +5,7 @@ body {
 }
 
 .App {
-  width: 960px;
+  width: 990px;
   margin: auto auto;
 }
 
@@ -28,7 +28,6 @@ body {
 
 .App-intro {
   font-size: 23px;
-  font-weight: bold;
   color: #6c7277;
   padding-bottom: 10px;
 }
@@ -38,63 +37,102 @@ body {
   to { transform: rotate(360deg); }
 }
 
-/* form CSS */
-
-.Form-class {
-  background-color: #ffffff;
-  padding: 10px;
-}
 
 /*Table CSS*/
 
 table {
     
     background-color: white;
+    width: 100%;
     border-collapse: collapse;    
 }
 
 tr {
-     border-bottom: 1px solid #ECF0F1;
+     border-top:  1px solid #e0e3e3;
 }
 
 .Table-header{
-  color: #757575;  
+  color: #484848;    
+  font-weight: bold;
+  height: 50px;
   font-size: 14px;
-  line-height: 16px;
-  font-weight: 500;
-  height: 48px;
-  
+  line-height: 15px;
 }
 
 .Table-row {
-  color: #505050;  
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
-  height: 72px;  
+  color: #484848;  
+  height: 65px; 
+  font-size: 15px;
+  line-height: 20px;
 }
 
 th {
     text-align: left;
-    padding-left: 16px;
+    padding-left: 22px;
 }
 
 td {
-    width: 180px;
-    padding-left: 24px;
-    padding-bottom: 24px;
+    padding-left: 22px;    
 }
 
 .edit {
-    height: 24px;
-    width: 24px;
+    height: 30px;
+    width: 30px;
     padding-left: 200px;  
-    text-align: right;
 }
 
 .removeData {
-   padding-right: 10px;
-   padding-left: 10px;
-   text-align: right;
+   padding-right: 22px;
+   padding-left: 22px;
+}
+
+
+/*Form CSS*/
+
+form {
+  	background-color: white;
+    margin-bottom: 10px;
+    padding: 8px;  
+}
+
+Form tr{
+  border-top:  0px;
+}
+
+.Form-table-cell{
+	 padding-left: 10px;
+   width: 100px;
+}
+
+
+input[type="text"] {    
+   width: 160px;
+}
+
+input[type="email"] {  
+	 width: 260px;  	
+}
+
+input[type="tel"] { 
+   width: 160px;
+}
+
+form tr td input {
+  padding-left: 10px;
+  height: 35px;
+  font-size: 15px;
+  background-color: #e0e3e3;
+  border: 0;
+}
+
+.btn  {
+	  height: 37px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: none;
+    background-color: #e0e3e3;
+    font-size: 15px;
+    color: #6c7277; 
+    margin-left: 130px;
 }
 

@@ -2,17 +2,19 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './index.css';
 import Table from './Table'
+import Form from './Form'
 
 
 
 class App extends Component {
 
   state = {
-        data: [
-             {id: 1, fullName: "John Doe", email: "joe.clooney@gmail.com", phone: "0405678471"}, 
+
+        participants: [
+           {id: 1, fullName: "John Doe", email: "joe.clooney@gmail.com", phone: "0405678471"}, 
            {id: 2, fullName: "Sandhya Mahat", email: "smahato.official@gmail.com", phone: "0404178995"}, 
            {id: 3, fullName: "Kalyan Giri", email: "kalyangiri1@gmail.com", phone: "0456478705"}, 
-            {id: 4, fullName: "Rupesh Chaudhary", email: "rupesh.chaudhary@gmail.com", phone: "0405685271"},
+           {id: 4, fullName: "Rupesh Chaudhary", email: "rupesh.chaudhary@gmail.com", phone: "0405685271"},
            {id: 5, fullName: "Matti Tunturi", email: "mattitunturi1@gmail.com", phone: "0405678478"},
            {id: 6, fullName: "Kimo Tuomalainen", email: "kim.tuo454@gmail.com", phone: "0405675691"},
            {id: 7, fullName: "Hanne Lankari", email: "hanne.lankari414@gmail.com", phone: "0405678471"},
@@ -30,7 +32,14 @@ class App extends Component {
            {id: 19, fullName: "Ratna Bahadur Mahat", email: "ratna.mahat111@gmail.com", phone: "0405622271"},
            {id: 20, fullName: "Balsam Almurraghani", email: "balsam.almurraghani@gmail.com", phone: "0405625271"}
         ]
-         };
+  };
+
+
+  delete = (i) => {
+    const participants = this.state.participants.slice();
+    participants.splice(i, 1);
+    this.setState({participants: participants});
+  }
 
   render() {
     return (
@@ -44,12 +53,8 @@ class App extends Component {
             List of participants
           </p>
 
-          <p className="Form-class">
-            Here comes the form component to add new participants.            
-          </p>
-          
-           
-          <Table data={this.state.data}/>
+          <Form/>          
+          <Table participants={this.state.participants} delete={this.delete} />
           
         </div>
         
