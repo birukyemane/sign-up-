@@ -3,37 +3,63 @@ import './index.css';
 
 class Form extends React.Component {
 
+   constructor(props) {
+	super(props);
+	this.state = {
+		id:'',
+		fullName: '',
+		email:'',
+		phone:''
+	};
+	this.handleChange = this.handleChange.bind(this);
+	this.handleSubmit = this.handleSubmit.bind(this);
+   }
+
+  handleChange(event) {
+    this.setState({[event.target.name]: event.target.value});
+  }
+
+  handleSubmit(event) {
+  	this.setState({id:this.props.nextId});
+    this.props.add(this.state);
+    event.preventDefault();
+  }
+
   render() {
     return (
-    	<form>
+    	<form onSubmit={this.handleSubmit}>
     		<table>
 	    	<tr>
 	    		<td className="Form-table-cell"> 
 	    			<input 
 			        type = "text" 
-			        placeholder = "Full name" 
-			        className= "InputArea" 
-			        name="fullName"	      
+			        placeholder = "Full name" 			        
+			        name="fullName"	 
+			        value= {this.state.fullName} 
+                    onChange={this.handleChange}     
 			    	/>	
 	    		</td>
 	    		<td className="Form-table-cell"> 
 	    			<input 
 			        type = "email" 
 			        placeholder = "E-mail address" 
-			        className= "InputArea" 
-			        name="email" 	        
+			        name="email" 
+			        value= {this.state.email} 
+                    onChange={this.handleChange}	        
 			    	/>
 	    		</td>
 	    		<td className="Form-table-cell"> 	
 	    			<input 
 			        type = "tel" 
 			        placeholder = "Phone number" 
-			        className= "InputArea" 
-			        name="phone"		       
+			        name="phone"
+			        value= {this.state.phone} 
+                    onChange={this.handleChange}		       
 			    	/>
 	    	  	</td>
-	    	  	<td> 	
-	    			<button className = "btn btn-primary" >Add new</button>
+	    	  	<td> 
+	    	  		<input type="submit" className = "btn btn-primary" value="Add new" />	
+	    			
 	    	  	</td>
 	    	</tr>		    
              </table>  

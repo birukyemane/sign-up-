@@ -5,12 +5,12 @@ import './index.css';
 function TableRow(props) {
   return (
   	<tr className ="Table-row">
-      <td className ="Table-cell" key={props.data.fullName}>{props.data.fullName}</td>
+      <td className ="Table-cell" key={props.data.fullName}>{props.data.fullName}{props.data.id}</td>
       <td key={props.data.email}>{props.data.email}</td>
       <td key={props.data.phone}>{props.data.phone}</td>
       <td className="edit">Edit</td>
       <td className="removeData">
-          <button className = "btn" onClick={()=>props.delete(props.index)}>Delete</button>
+          <button onClick={()=>props.delete(props.index)}>Delete</button>
       </td>
     </tr>
   );

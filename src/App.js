@@ -31,13 +31,20 @@ class App extends Component {
            {id: 18, fullName: "Sajana Karmacharya", email: "sajana.karmacharya111@gmail.com", phone: "0405611171"},
            {id: 19, fullName: "Ratna Bahadur Mahat", email: "ratna.mahat111@gmail.com", phone: "0405622271"},
            {id: 20, fullName: "Balsam Almurraghani", email: "balsam.almurraghani@gmail.com", phone: "0405625271"}
-        ]
+        ],
+    nextID: 21
   };
 
-
-  delete = (i) => {
+  add = (formData) => {
     const participants = this.state.participants.slice();
-    participants.splice(i, 1);
+    formData.id = this.state.nextID;
+    participants.push(formData);
+    this.setState({participants: participants, nextID:++this.state.nextID});
+  }
+
+  delete = (index) => {
+    const participants = this.state.participants.slice();
+    participants.splice(index, 1);
     this.setState({participants: participants});
   }
 
@@ -53,8 +60,8 @@ class App extends Component {
             List of participants
           </p>
 
-          <Form/>          
-          <Table participants={this.state.participants} delete={this.delete} />
+          <Form add={this.add} nextID={this.state.nextID}/>          
+          <Table participants={this.state.participants} delete={this.delete}/>
           
         </div>
         
